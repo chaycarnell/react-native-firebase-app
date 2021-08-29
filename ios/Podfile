@@ -1,0 +1,45 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '11.0'
+
+# Set reference to if the environment is part of a CI/CD build
+# i.e. examples below being present in ENV
+# this can be used to shave 20/30 minutes off iOS build times!
+IS_CICD = ENV['FASTLANE_USERNAME']
+
+if IS_CICD
+  puts "IS CI/CD BUILD, FLIPPER WILL NOT BE INSTALLED FOR FASTER BUILDS"
+end
+
+if not IS_CICD
+  puts "IS NOT CI/CD BUILD, FLIPPER WILL BE INSTALLED"
+end
+
+target 'Coldgold' do
+
+  config = use_native_modules!
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # to enable hermes on iOS, change `false` to `true` and then install pods
+    :hermes_enabled => true
+  )
+
+  target 'ColdgoldTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  # Enables Flipper.
+  #
+  # Note that if you have use_frameworks! enabled, Flipper will not work and
+  # you should disable the next line.
+  if not IS_CICD
+    use_flipper!()
+  end
+
+  post_install do |installer|
+    react_native_post_install(installer)
+  end
+end

@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/52595303/how-to-get-and-pass-the-jwt-through-to-server
+
+https://www.freecodecamp.org/news/react-native-firebase-tutorial/

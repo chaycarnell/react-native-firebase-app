@@ -1,0 +1,33 @@
+{
+  "eslint.enable": true,
+  "editor.codeActionsOnSave": { "source.fixAll.prettier": true },
+  "editor.formatOnSave": true,
+  "[markdown]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80
+  },
+  "editor.insertSpaces": true,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/libs": true,
+    "**/assets": true,
+    "**/static": true,
+    "**/bower_components": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/test-reports": true,
+    "**/package.lock": true
+  },
+  "workbench.colorCustomizations": {
+    "activityBarBadge.background": "#4ec231",
+    "list.activeSelectionForeground": "#4ec231",
+    "list.inactiveSelectionForeground": "#4ec231",
+    "list.highlightForeground": "#4ec231",
+    "scrollbarSlider.activeBackground": "#4ec231",
+    "editorSuggestWidget.highlightForeground": "#4ec231",
+    "textLink.foreground": "#4ec231",
+    "progressBar.background": "#4ec231",
+    "pickerGroup.foreground": "#4ec231",
+    "tab.unfocusedActiveBorder": "#5e0a44"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "315028087209",
+    "firebase_url": "https://coldgold-debug.firebaseio.com",
+    "project_id": "coldgold-debug",
+    "storage_bucket": "coldgold-debug.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315028087209:android:30e6e446c65fcd6f0924b8",
+        "android_client_info": {
+          "package_name": "com.coldgold.app.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315028087209-fue6j7p7ui8k6gk3rvfhientvqjnke73.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNSBHRdJGJpBDXuQOOAq74-nF0GRUjYGo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "315028087209-fue6j7p7ui8k6gk3rvfhientvqjnke73.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "315028087209-an73hvjjt1gc3n6rouh7kt7d45q46p81.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.coldgold.app.debug"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
