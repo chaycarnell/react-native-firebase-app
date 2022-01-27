@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { SafeAreaView, StatusBar } from 'react-native';
+import { SafeAreaView, StatusBar, LogBox } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {
   navigator,
@@ -42,3 +42,7 @@ const App = () => (
 );
 
 export default App;
+
+LogBox.ignoreLogs([
+  "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
+]);

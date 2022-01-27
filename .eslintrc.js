@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['airbnb', 'prettier', 'prettier/react'],
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   env: {
     jest: true,
   },
@@ -8,6 +8,13 @@ module.exports = {
     'no-use-before-define': 'off',
     'react/jsx-filename-extension': 'off',
     'react/prop-types': 'off',
+    'react/function-component-definition': [
+      1,
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
   },
   settings: {
     'import/resolver': {

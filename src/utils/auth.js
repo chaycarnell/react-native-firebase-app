@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useMemo } from 'react';
 import { Linking } from 'react-native';
 import auth from '@react-native-firebase/auth';
 
@@ -234,15 +234,16 @@ export const AuthProvider = (props) => {
     Linking.addEventListener('url', console.log);
   }, []);
 
-  return (
-    <AuthContext.Provider
-      value={{
-        setAuthState,
-        authenticated,
-        currentUser,
-        initialized,
-      }}>
-      {children}
-    </AuthContext.Provider>
+  // Memoize context values
+  const value = useMemo(
+    () => ({
+      authenticated,
+      currentUser,
+      initialized,
+      setAuthState,
+    }),
+    [authenticated, currentUser, initialized],
   );
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
