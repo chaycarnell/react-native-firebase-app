@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "private": false,
-  "repository": "https://github.com/chaycarnell/react-native-firebase-app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chaycarnell/react-native-firebase-app"
+  },
   "scripts": {
     "android": "react-native run-android --variant=localDebug --appIdSuffix=debug",
     "android:release": "react-native run-android --variant=prodRelease --appIdSuffix=release",
@@ -39,6 +42,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
     "@babel/runtime": "^7.16.7",
     "@react-native-community/eslint-config": "^3.0.1",
     "@types/react-native": "^0.66.15",
