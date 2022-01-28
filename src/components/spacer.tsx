@@ -2,7 +2,12 @@ import React from 'react';
 import Styled from 'styled-components/native';
 import { s } from '@utils/scale';
 
-const Spacer = Styled.View`
+interface ISpacerProps {
+  height: number;
+  width: number;
+}
+
+const Spacer = Styled.View<ISpacerProps>`
    opacity: 0;
    height: ${({ height }) => `${s(height)}px`};
    width: ${({ width }) => `${s(width)}px`};

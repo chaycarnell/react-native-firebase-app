@@ -23,6 +23,7 @@ module.exports = {
           '@styles': './src/styles',
           '@components': './src/components',
           '@utils': './src/utils',
+          '@auth': './src/auth',
         },
       },
     ],

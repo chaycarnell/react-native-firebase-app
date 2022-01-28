@@ -2,7 +2,7 @@ import React from 'react';
 import theme from '@styles/theme';
 import LinearGradient from 'react-native-linear-gradient';
 
-const Render = ({ children }) => (
+const Render = ({ children }: { children?: React.ReactNode }) => (
   <LinearGradient
     start={{ x: 0.8, y: 0.05 }}
     end={{ x: 0.5, y: 1.0 }}
@@ -11,7 +11,8 @@ const Render = ({ children }) => (
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-    }}>
+    }}
+  >
     {children}
   </LinearGradient>
 );

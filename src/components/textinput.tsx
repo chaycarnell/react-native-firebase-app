@@ -3,6 +3,15 @@ import Styled from 'styled-components/native';
 import theme from '@styles/theme';
 import { s } from '@utils/scale';
 
+interface ITextInput {
+  value: string;
+  placeholder?: string;
+  onChange?: (text: string) => void;
+  isSecure?: boolean;
+  autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters' | undefined;
+  textAlign?: 'left' | 'center' | 'right' | undefined;
+}
+
 const Input = Styled.TextInput`
     width: 80%;
     height: ${s(40)}px;
@@ -19,18 +28,18 @@ const Input = Styled.TextInput`
 const Render = ({
   value = '',
   placeholder = '',
-  onChange,
+  onChange = () => {},
   isSecure = false,
   autoCapitalize = 'none',
   textAlign = 'center',
-}) => {
+}: ITextInput) => {
   return (
     <Input
       textAlign={textAlign}
       secureTextEntry={isSecure}
       autoCapitalize={autoCapitalize}
       placeholder={placeholder}
-      onChangeText={(text) => onChange && onChange(text)}
+      onChangeText={(text) => onChange(text)}
       value={value}
     />
   );

@@ -7,7 +7,7 @@ import {
   removeBackHandleListener,
 } from '@utils/navigation';
 import RNBootSplash from 'react-native-bootsplash';
-import { AuthProvider, useAuth } from '@utils/auth';
+import { AuthProvider, useAuth } from '@auth';
 import Screens from '@screens';
 
 const Content = () => {
@@ -16,7 +16,7 @@ const Content = () => {
   // Handle on app launch handlers here
   useEffect(() => {
     applyBackHandleListener();
-    if (initialized) RNBootSplash.hide({ duration: 500 });
+    if (initialized) RNBootSplash.hide({ fade: true });
     // Clean up
     return () => {
       removeBackHandleListener();
@@ -43,6 +43,7 @@ const App = () => (
 
 export default App;
 
+// See: https://github.com/software-mansion/react-native-gesture-handler/issues/1831
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
 ]);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useAuth } from '@utils/auth';
+import { useAuth } from '@auth';
 import AuthScreen from './auth';
 import DashboardScreen from './dashboard';
 import PlaceholderScreen from './placeholder';
@@ -17,9 +17,9 @@ const Stack = createStackNavigator();
 
 // Default screen header options
 const defaultHeaderOpts = {
-  headerTitleAlign: 'center',
+  headerTitleAlign: 'center' as 'center',
   headerShown: false,
-  headerLeft: false,
+  headerLeft: undefined,
 };
 
 export default () => {

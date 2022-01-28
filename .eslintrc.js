@@ -1,32 +1,38 @@
 module.exports = {
-  extends: ['airbnb', 'prettier', 'prettier/react'],
-  parser: '@babel/eslint-parser',
+  extends: ['@react-native-community', 'airbnb-typescript', 'prettier'],
+  parserOptions: {
+    project: ['./tsconfig.json'],
+  },
+  parser: '@typescript-eslint/parser',
   env: {
+    es6: true,
+    browser: true,
+    node: true,
     jest: true,
   },
   rules: {
+    'import/prefer-default-export': 'off',
     'no-use-before-define': 'off',
     'react/jsx-filename-extension': 'off',
     'react/prop-types': 'off',
-    'react/function-component-definition': [
-      1,
-      {
-        namedComponents: 'arrow-function',
-        unnamedComponents: 'arrow-function',
-      },
-    ],
+    'react/require-default-props': 'off',
+    'import/extensions': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'react-native/no-inline-styles': 'off',
   },
   settings: {
+    react: {
+      version: 'detect',
+    },
     'import/resolver': {
       alias: {
         map: [
+          ['@auth', './src/auth'],
           ['@components', './src/components'],
-          ['@assets', './src/assets'],
-          ['@styles', './src/styles'],
           ['@screens', './src/screens'],
           ['@utils', './src/utils'],
         ],
-        extensions: ['.ts', '.js', '.jsx', '.json'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
       },
     },
   },

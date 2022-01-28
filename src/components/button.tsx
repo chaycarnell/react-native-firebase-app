@@ -5,14 +5,14 @@ import theme from '@styles/theme';
 import Spinner from './spinner';
 import Text from './text';
 
-const typeColors = {
+const typeColors: { [key: string]: string } = {
   primary: theme.colors.primary,
   secondary: theme.colors.error,
 };
 
 const Render = ({
-  onPress,
-  onLongPress,
+  onPress = () => {},
+  onLongPress = () => {},
   disabled = false,
   height = 40,
   width = 120,
@@ -37,27 +37,23 @@ const Render = ({
         elevation: 5,
       })}
       onPress={() => onPress && onPress()}
-      onLongPress={() => onLongPress && onLongPress()}>
-      <View style={{ diplay: 'flex', flexDirection: 'row' }}>
+      onLongPress={() => onLongPress && onLongPress()}
+    >
+      <View style={{ flex: 1, flexDirection: 'row' }}>
         <View style={{ width: s(30) }} />
         <View
           style={{
             width: s(width) - s(60),
             justifyContent: 'center',
             alignItems: 'center',
-          }}>
+          }}
+        >
           <Text size={textSize} color={textColor} bold={bold}>
             {text}
           </Text>
         </View>
         <View style={{ width: s(30) }}>
-          <View style={{ paddingRight: 10 }}>
-            <Spinner
-              size="small"
-              loading={loading}
-              color={theme.colors.white}
-            />
-          </View>
+          <Spinner size="small" loading={loading} color={theme.colors.white} />
         </View>
       </View>
     </Pressable>

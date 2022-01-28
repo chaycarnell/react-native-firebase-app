@@ -7,7 +7,7 @@ import {
   login,
   verifyEmail,
   refreshUser,
-} from '@utils/auth';
+} from '@auth';
 import { setUserId, log, recordError } from '@utils/crashlytics';
 import { logEvent } from '@utils/analytics';
 import theme from '@styles/theme';
@@ -22,14 +22,14 @@ import {
 
 const Render = () => {
   const { currentUser, setAuthState } = useAuth();
-  const [step, setStep] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConf, setPasswordConf] = useState('');
-  const [message, setMessage] = useState(null);
+  const [step, setStep] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [firstname, setFirstname] = useState<string>('');
+  const [lastname, setLastname] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [passwordConf, setPasswordConf] = useState<string>('');
+  const [message, setMessage] = useState<null | string>(null);
 
   // Handle login
   const onLogin = () => {
@@ -97,9 +97,9 @@ const Render = () => {
   const onVerifyEmail = () => {
     setLoading(true);
     verifyEmail().then((res) => {
-      if (res.success) {
+      if (res?.success) {
         const timer = setInterval(() => {
-          if (currentUser.emailVerified) {
+          if (currentUser?.emailVerified) {
             clearInterval(timer);
             setAuthState(true);
           } else {
@@ -142,7 +142,7 @@ const Render = () => {
             onChange={setPassword}
             value={password}
           />
-          <View height={25}>
+          <View>
             <Text size={12} color={theme.font.colors.secondary}>
               {message}
             </Text>
@@ -151,6 +151,7 @@ const Render = () => {
             text="Login"
             width={200}
             onPress={onLogin}
+            onLongPress={onLogin}
             disabled={loading}
             loading={loading}
           />
@@ -204,7 +205,7 @@ const Render = () => {
             onChange={setPasswordConf}
             value={passwordConf}
           />
-          <View height={25}>
+          <View>
             {message && (
               <Text size={12} color={theme.font.colors.secondary}>
                 {message}
@@ -216,6 +217,7 @@ const Render = () => {
             text="Submit"
             width={200}
             onPress={onRegister}
+            onLongPress={onRegister}
             loading={loading}
             disabled={loading}
           />
@@ -226,6 +228,7 @@ const Render = () => {
             width={200}
             disabled={loading}
             onPress={() => setStep(0)}
+            onLongPress={() => setStep(0)}
           />
         </>
       )}
@@ -241,7 +244,7 @@ const Render = () => {
             onChange={setEmail}
             value={email}
           />
-          <View height={25}>
+          <View>
             {message && (
               <Text size={12} color={theme.font.colors.secondary}>
                 {message}
@@ -253,6 +256,7 @@ const Render = () => {
             text="Confirm"
             width={200}
             onPress={onResetPassword}
+            onLongPress={onResetPassword}
             disabled={loading}
             loading={loading}
           />
@@ -263,6 +267,7 @@ const Render = () => {
             width={200}
             disabled={loading}
             onPress={() => setStep(0)}
+            onLongPress={() => setStep(0)}
           />
         </>
       )}
@@ -284,6 +289,7 @@ const Render = () => {
             text={loading ? 'Please wait' : 'Send Verification'}
             width={200}
             onPress={onVerifyEmail}
+            onLongPress={onVerifyEmail}
             disabled={loading}
             loading={loading}
           />
@@ -293,6 +299,7 @@ const Render = () => {
             text="Back"
             width={200}
             onPress={() => setStep(0)}
+            onLongPress={() => setStep(0)}
           />
         </>
       )}

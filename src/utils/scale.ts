@@ -11,13 +11,16 @@ const [shortDimension, longDimension] =
 const guidelineBaseWidth = 320;
 const guidelineBaseHeight = 568;
 
-export const scale = (size) => (shortDimension / guidelineBaseWidth) * size;
-export const verticalScale = (size) =>
+export const scale = (size: number): number =>
+  (shortDimension / guidelineBaseWidth) * size;
+export const verticalScale = (size: number): number =>
   (longDimension / guidelineBaseHeight) * size;
-export const moderateScale = (size, factor = 0.5) =>
+export const moderateScale = (size: number, factor: number = 0.5): number =>
   size + (scale(size) - size) * factor;
-export const moderateVerticalScale = (size, factor = 0.5) =>
-  size + (verticalScale(size) - size) * factor;
+export const moderateVerticalScale = (
+  size: number,
+  factor: number = 0.5,
+): number => size + (verticalScale(size) - size) * factor;
 
 export const s = scale;
 export const vs = verticalScale;
