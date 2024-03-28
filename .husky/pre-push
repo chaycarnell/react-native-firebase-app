@@ -3,10 +3,10 @@
 
 # Branch prefix validation
 branch_name=$(git rev-parse --abbrev-ref HEAD)
-pattern="^(feat|chore|fix|release|docs|refactor|test)/"
+pattern="^(feature|build|chore|fix|release|docs|refactor|test)/"
 
 if [[ ! $branch_name =~ $pattern ]]; then
-  echo "Error: Branch name must start with one of 'feat/', 'chore/', 'fix/', 'release/', 'docs/', 'refactor/', 'test/'"
+  echo "Error: Branch name must start with one of 'feature/', 'build/', 'chore/', 'fix/', 'release/', 'docs/', 'refactor/', 'test/'"
   echo "Your branch name is: $branch_name"
   exit 1
 fi
