@@ -21,7 +21,7 @@
     "lint": "yarn types:check && eslint ./src --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint -- --fix",
     "prepare": "husky install",
-    "prettier:write": "npx prettier --write **/*.{js,ts,tsx,json} && npx prettier --write *.{js,json}",
+    "prettier:write": "npx prettier --write \"**/*.{js,ts,tsx,json}\"",
     "reset": "watchman watch-del-all && react-native start --reset-cache",
     "sort:package": "npx sort-package-json",
     "start": "react-native start",
